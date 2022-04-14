@@ -1,7 +1,25 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:mit_cvmaker_app/providers/utils_provider.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'modules/splash_screen/splash_screen.dart';
+typedef dynamic OnItemClickListener();
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<UtilsProviderModel>(create: (ctx) => UtilsProviderModel(),),
+  ],
+    child:EasyLocalization(
+        supportedLocales: const [Locale('en', 'US'), Locale('ar', 'EG')],
+        path: 'assets/strings', // <-- change the path of the translation files
+        fallbackLocale: const Locale('ar', 'EG'),
+        child: const MyApp()
+    ),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -9,33 +27,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setLocale(const Locale('ar', 'EG'));
+    //EasyLocalization.of(context)!.setLocale(const Locale('ar', 'EG'));
+    UtilsProviderModel utilsProviderModel;
+    utilsProviderModel=Provider.of<UtilsProviderModel>(context,listen: true);
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
+        primaryColor:Colors.blue,
       ),
-      home: const MyHomePage(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: utilsProviderModel.currentLocal,
+      debugShowCheckedModeBanner: false,
+      home: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarColor: Colors.black.withOpacity(0.7),
+          ),
+          child: const SplashScreen()) ,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
 
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Container()
-    );
-  }
-}
