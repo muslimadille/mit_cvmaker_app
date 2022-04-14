@@ -1,6 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mit_cvmaker_app/modules/main_tabs_screen/main_tabs_screen.dart';
 import '../../utils/baseDimentions.dart';
 import '../../utils/base_text_style.dart';
 import '../../utils/constants.dart';
@@ -9,6 +10,8 @@ import '../../utils/my_utils.dart';
 import '../../utils/widgets/base_botton.dart';
 import '../../utils/widgets/transition_image.dart';
 import '../base_screen/base_screen.dart';
+import '../login_screen/login_screen.dart';
+import '../registeration/registeration_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -71,7 +74,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget _loginButton(){
     return BaseButton(
       onItemClickListener: (){
-        //MyUtils.navigate(context, LoginScreen());
+        MyUtils.navigate(context, LoginScreen());
       },
       title: tr("Login"),
       color: C.BLUE_1,
@@ -82,7 +85,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget _createCVButton(){
     return BaseButton(
       onItemClickListener: (){
-        //MyUtils.navigate(context, LoginScreen());
+        MyUtils.navigate(context, MainTabsScreen());
       },
       title: tr("Create Your Resume"),
       color: C.BLUE_1,
@@ -94,7 +97,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget _registerButton(){
     return BaseButton(
       onItemClickListener: (){
-        //MyUtils.navigate(context, RegisterationScreen());
+        MyUtils.navigate(context, RegisterationScreen());
       },
       title: tr("Register"),
       color: C.GREY_4,
