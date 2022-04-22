@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
     return BaseScreen(body: SafeArea(child: Stack(
       alignment:AlignmentDirectional.center,
       children: [
-        TransitionImage("assets/images/spalsh-bg.jpg",fit: BoxFit.cover,
+        TransitionImage("assets/images/login_blue_bg.png",fit: BoxFit.cover,
           width: double.infinity,height: double.infinity,),
         // Container(
         //   width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height,color: C.BLUE_4,),
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          BackBottonWidget(ctx)
+          BackBottonWidget(ctx,color: Colors.white,)
     ],),);
   }
   Widget _introText(){

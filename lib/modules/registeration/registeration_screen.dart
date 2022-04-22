@@ -60,9 +60,8 @@ class _RegisterationScreenState extends State<RegisterationScreen> with InputVal
     return BaseScreen(body: SafeArea(child: Stack(
       alignment:AlignmentDirectional.center,
       children: [
-        TransitionImage("assets/images/spalsh-bg.jpg",fit: BoxFit.cover,
+        TransitionImage("assets/images/login_blue_bg.png",fit: BoxFit.cover,
           width: double.infinity,height: double.infinity,),
-        Container(width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height,color: Colors.white.withOpacity(0.7),),
         Container(
           margin: EdgeInsets.only(left: D.default_40,right: D.default_40),
           width: double.infinity,
@@ -97,7 +96,7 @@ class _RegisterationScreenState extends State<RegisterationScreen> with InputVal
         children: [
           IconButton(onPressed:(){
             Navigator.of(context).pop();
-          }, icon: Icon(Icons.arrow_back_ios,color: C.GREY_1,size: D.default_30,))
+          }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,size: D.default_30,))
         ],),);
   }
   Widget _introText(){
