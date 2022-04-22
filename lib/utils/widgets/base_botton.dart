@@ -33,7 +33,7 @@ class BaseButton extends StatelessWidget {
         margin: margin??EdgeInsets.only(top:D.default_10,bottom: D.default_10),
         padding: padding??EdgeInsets.all(D.default_5),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(D.default_10),
+            borderRadius: BorderRadius.circular(D.default_1),
             color: color??C.BLUE_1,
             boxShadow:enableShadow? [BoxShadow(
                 color: C.GREY_4,

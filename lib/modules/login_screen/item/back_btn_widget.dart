@@ -11,6 +11,6 @@ class BackBottonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(onPressed:(){
       Navigator.of(ctx).pop();
-    }, icon: Icon(Icons.arrow_back_ios,color: color??C.GREY_1,size: D.default_30,));
+    }, icon: Icon(Icons.arrow_back_ios,color: color??Colors.white,size: D.default_30,));
   }
 }

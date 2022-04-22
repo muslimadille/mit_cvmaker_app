@@ -53,9 +53,11 @@ class _SplashScreenState extends State<SplashScreen> {
     ));
   }
   void _timerNavigation(){
+  if(mounted) {
     Future.delayed(Duration(milliseconds: 5000)).then((value) {
       MyUtils.navigateReplaceCurrent(context, OnBoardingScreen());
     });
+  }
 
   }
   void _initPref(BuildContext ctx)async{

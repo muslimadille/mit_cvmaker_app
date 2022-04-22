@@ -39,15 +39,15 @@ class _BaseTextFiledState extends State<BaseTextFiled> with InputValidationMixin
               labelStyle: S.h4(color: C.GREY_3),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(1.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: C.BLUE_1),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(1.0),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(color: C.BLUE_1),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(1.0),
             ),
             errorStyle: S.h4(color: Colors.red),
             contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),

@@ -55,29 +55,42 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
       children: [
         TransitionImage("assets/images/spalsh-bg.jpg",fit: BoxFit.cover,
           width: double.infinity,height: double.infinity,),
-        Container(width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height,color: Colors.white.withOpacity(0.7),),
+        // Container(
+        //   width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height,color: C.BLUE_4,),
         Container(
-          margin: EdgeInsets.only(left: D.default_40,right: D.default_40),
+          margin: EdgeInsets.only(left: D.default_50,right: D.default_40),
           width: double.infinity,
           child: Column(children: [
             _backBtn(context),
-            Expanded(child: SingleChildScrollView(child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: D.default_70,),
-                _titleText(),
-                _introText(),
-                SizedBox(height: D.default_50,),
-                _deviderPart(),
-                SizedBox(height: D.default_20,),
-                _loginForm(),
-                _forgetPassword(),
-                SizedBox(height: D.default_50,),
-                _loginButton(),
-                _registerButton(),
-                _skip(),
-                SizedBox(height: D.default_60,)
-              ],),))
+            Expanded(child: SingleChildScrollView(child:  Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                elevation: 15,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child:Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: D.default_40,),
+                      _titleText(),
+                      _introText(),
+                      SizedBox(height: D.default_50,),
+                      _deviderPart(),
+                      SizedBox(height: D.default_20,),
+                      _loginForm(),
+                      _forgetPassword(),
+                      SizedBox(height: D.default_50,),
+                      _loginButton(),
+                      _registerButton(),
+                      _skip(),
+                      SizedBox(height: D.default_40,),
+
+                    ],),)),
+                ),
+              ),
+
           ],),),
         //loginProvider!.isLoading? LoadingProgress():Container()
       ],
@@ -170,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
           children: [
             BaseTextFiled(
               controller: _emailController,
-              hint: tr("email"),
+              hint: tr("email_text"),
               validator: (name) {
                 if (isFieldNotEmpty(name!)) {
                   if(isEmailValid(name)){
@@ -186,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
             SizedBox(height: D.default_15,),
             BaseTextFiled(
               controller: _passwordController,
-              hint: tr("password"),
+              hint: tr("password_text"),
               isPassword: true,
               validator: (name) {
                 if (isFieldNotEmpty(name!)) {
@@ -214,13 +227,14 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin{
           ],)),);
   }
   _onLoginClicked() {
-    /*if (_loginFormGlobalKey.currentState!.validate()) {
-      _loginFormGlobalKey.currentState!.save();
-      loginProvider!.login(
-          context,
-          _emailController.text,
-          _passwordController.text);
-    }*/
+    if (_loginFormGlobalKey.currentState!.validate()) {
+      //   _loginFormGlobalKey.currentState!.save();
+      //   loginProvider!.login(
+      //       context,
+      //       _emailController.text,
+      //       _passwordController.text);
+      // }
+    }
   }
 
 }

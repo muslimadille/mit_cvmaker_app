@@ -1,4 +1,11 @@
 {
-
+  "welcome_text": "مرحبا",
+  "or_text": "أو",
+  "skip_title": "تخطي",
+  "login_title": "دخول",
+  "register_title": "تسجيل",
+  "forget_password": "نسيت كلمة السر",
+  "email_text": "البريد الالإلكتروني",
+  "password_text": "كلمة السر"
 
 }

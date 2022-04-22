@@ -1,7 +1,3 @@
-
-
-
-
 class MyResponse<T> extends Object {
   final TAG = "MyResponse";
 
