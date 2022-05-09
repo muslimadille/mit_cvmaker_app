@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -20,15 +19,17 @@ class OtpScreen extends StatefulWidget {
   String title;
   String code;
   String email;
-  OtpScreen(this.otpFalge,this.title,{this.code="",this.email=""}) ;
+
+  OtpScreen(this.otpFalge, this.title, {this.code = "", this.email = ""});
 
   @override
   _OtpScreenState createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-  String _userCode="";
+  String _userCode = "";
   DateTime? _timer;
+
   @override
   void initState() {
     super.initState();
@@ -36,79 +37,125 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScreen(body: SafeArea(child: Stack(
-      alignment:AlignmentDirectional.center,
-      children: [
-        TransitionImage("assets/images/spalsh-bg.jpg",fit: BoxFit.cover,
-          width: double.infinity,height: double.infinity,),
-        Container(width: MediaQuery.of(context).size.width,height: MediaQuery.of(context).size.height,color: Colors.white.withOpacity(0.7),),
-        Container(
-          margin: EdgeInsets.only(left: D.default_40,right: D.default_40),
-          width: double.infinity,
-          child: Column(children: [
-            _backBtn(),
-            Expanded(child: SingleChildScrollView(child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+    return BaseScreen(
+        body: SafeArea(
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+          TransitionImage(
+            "assets/images/login_blue_bg.png",
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Container(
+            margin: EdgeInsets.only(left: D.default_50, right: D.default_40),
+            width: double.infinity,
+            child: Column(
               children: [
-                SizedBox(height: D.default_100,),
-                _titleText(),
-                _introText(),
-                SizedBox(height: D.default_60,),
-                _otpField(),
-                SizedBox(height: D.default_10,),
-                _sendButton(),
-                SizedBox(height: D.default_10,),
-              ],),))
-          ],),)
-      ],
-    ),));
+                _backBtn(),
+                Expanded(
+                    child: SingleChildScrollView(
+                        child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            elevation: 15,
+                            color: Colors.white,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: D.default_100,
+                                  ),
+                                  _titleText(),
+                                  _introText(),
+
+                                  _otpField(),
+                                  SizedBox(
+                                    height: D.default_10,
+                                  ),
+                                  _sendButton(),
+                                  SizedBox(height: D.default_200),
+                                ],
+                              ),
+                            ))))
+              ],
+            ),
+          )
+        ],
+      ),
+    ));
   }
-  Widget _backBtn(){
+
+  Widget _backBtn() {
     return Container(
-      padding: EdgeInsets.only(top:D.default_10),
+      padding: EdgeInsets.only(top: D.default_10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          IconButton(onPressed:(){
-            Navigator.of(context).pop();
-          }, icon: Icon(Icons.arrow_back_ios,color: C.GREY_1,size: D.default_30,))
-        ],),);
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+                size: D.default_30,
+              ))
+        ],
+      ),
+    );
   }
-  Widget _introText(){
+
+  Widget _introText() {
     return Container(
       width: double.infinity,
-      child: Text(tr("code_will_send_massage"),style: S.h3(color:C.GREY_3),textAlign: TextAlign.center,),);
-
+      child: Text(
+        tr("code_will_send_massage"),
+        style: S.h3(color: C.GREY_3),
+        textAlign: TextAlign.center,
+      ),
+    );
   }
-  Widget _titleText(){
+
+  Widget _titleText() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: D.default_10,bottom:D.default_10),
-      child: Text(tr("change_password"),style: S.h1(color:Colors.black),textAlign: TextAlign.center,),);
-
+      margin: EdgeInsets.only(top: D.default_10, bottom: D.default_10),
+      child: Text(
+        tr("change_password_text"),
+        style: S.h1(color: Colors.black),
+        textAlign: TextAlign.center,
+      ),
+    );
   }
 
-  Widget _sendButton(){
+  Widget _sendButton() {
     return BaseButton(
-      onItemClickListener: (){
-        if(widget.code==_userCode||_userCode=="0000"){
-          if(widget.title=="SendOtpEmailScreen"){
-            MyUtils.navigate(context, ResetPasswordScreen(widget.email,widget.code));
+      onItemClickListener: () {
+        if (widget.code == _userCode || _userCode == "0000") {
+          if (widget.title == "SendOtpEmailScreen") {
+            MyUtils.navigate(
+                context, ResetPasswordScreen(widget.email, widget.code));
           }
-
-        }else{
-           Fluttertoast.showToast(msg:tr("enter_valid_code"));
+        } else {
+          Fluttertoast.showToast(msg: tr("enter_valid_code"));
         }
       },
-      title: tr("send"),
+      title: tr("confirm_code_text"),
       color: C.BLUE_1,
       textStyle: S.h3(color: Colors.white),
       margin: EdgeInsets.all(D.default_5),
     );
   }
-  Widget _cancelButton(){
+
+  Widget _cancelButton() {
     return BaseButton(
-      onItemClickListener: (){
+      onItemClickListener: () {
         Navigator.pop(context);
       },
       title: tr("cancel"),
@@ -118,35 +165,38 @@ class _OtpScreenState extends State<OtpScreen> {
       margin: EdgeInsets.all(D.default_5),
     );
   }
-  Widget _otpField(){
-    return Directionality(textDirection: TextDirection.ltr, child: Container(
-      padding: EdgeInsets.all(D.default_30),
-      child: OTPTextField(
-        length: 4,
-        width: double.infinity,
-        fieldWidth: D.default_50,
-        otpFieldStyle:OtpFieldStyle(
-          focusBorderColor: C.BLUE_1
-        ),
-        style: TextStyle(
-            fontSize: D.default_20
-        ),
-        textFieldAlignment: MainAxisAlignment.spaceAround,
-        fieldStyle: FieldStyle.underline,
-        onCompleted: (pin) {
-          setState(() {
-            _userCode=pin;
-          });
-        },
-      ),));
+
+  Widget _otpField() {
+    return Directionality(
+        textDirection: TextDirection.ltr,
+        child: Container(
+          padding: EdgeInsets.all(D.default_30),
+          child: OTPTextField(
+            length: 4,
+            width: double.infinity,
+            fieldWidth: D.default_50,
+            otpFieldStyle: OtpFieldStyle(focusBorderColor: C.BLUE_1),
+            style: TextStyle(fontSize: D.default_20),
+            textFieldAlignment: MainAxisAlignment.spaceAround,
+            fieldStyle: FieldStyle.underline,
+            onCompleted: (pin) {
+              setState(() {
+                _userCode = pin;
+              });
+            },
+          ),
+        ));
   }
-  Widget _resendTimer(){
+
+  Widget _resendTimer() {
     return Container(
-      child:Row(children: [
-        Text("resent_code_in",style: S.h4(color: C.GREY_4),),
-
-      ],)
-    );
+        child: Row(
+      children: [
+        Text(
+          "resent_code_in",
+          style: S.h4(color: C.GREY_4),
+        ),
+      ],
+    ));
   }
-
 }

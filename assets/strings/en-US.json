@@ -4,5 +4,15 @@
   "skip_title": "Skip",
   "login_title": "Login",
   "register_title": "Register",
-  "forget_password": "Forget password"
+  "forget_password": "Forget password",
+  "first_name_text": "First Name",
+  "last_name_text": "Last Name",
+  "phone_number_text": "Phone Number",
+  "have_account_title": "Have Account?",
+  "cancel_text": "Cancel",
+  "change_password_text": "Change Password",
+  "send_email_screen_title": "send",
+  "code_will_send_massage": "Enter the code sent to your email.",
+  "confirm_code_text": "Confirm"
+
 }

@@ -6,6 +6,15 @@
   "register_title": "تسجيل",
   "forget_password": "نسيت كلمة السر",
   "email_text": "البريد الالإلكتروني",
-  "password_text": "كلمة السر"
+  "password_text": "كلمة السر",
+  "first_name_text": "الاسم الأول",
+  "last_name_text": "الاسم الأخير",
+  "phone_number_text": "رقم الموبيل",
+  "have_account_title": "لديك حساب؟",
+  "cancel_text": "إلغاء",
+  "change_password_text": "تغيير كلمة السر",
+  "send_email_screen_title": "إرسال",
+  "code_will_send_massage": "ادخل الكود المرسل إلى بريدك الإلكترونى",
+  "confirm_code_text": "تحقق"
 
 }
