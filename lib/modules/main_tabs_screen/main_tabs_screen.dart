@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import '../../utils/constants.dart';
 import '../home/home_screen.dart';
 import '../login_screen/login_screen.dart';
+import '../more/more_screen.dart';
 import '../tempelates/templates_screen.dart';
 import 'bottom_bar_icons.dart';
 import '../../utils/baseDimentions.dart';
@@ -90,7 +91,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
     return [
        TemplatesScreen(),
       const HomeScreen(),
-      const HomeScreen()
+       MoreScreen()
     ];
   }
 

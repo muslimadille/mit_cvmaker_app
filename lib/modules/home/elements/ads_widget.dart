@@ -25,7 +25,7 @@ class _AdsWidgetState extends State<AdsWidget> {
           borderRadius: BorderRadius.circular(D.default_10),
           color:Colors.white,
           boxShadow: [BoxShadow(
-              color: C.BLUE_1.withOpacity(0.3),
+              color: C.BLUE_1.withOpacity(0.1),
               offset:Offset(0,0),
               blurRadius:3,
               spreadRadius: 3

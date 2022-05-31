@@ -53,9 +53,9 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
         children: [
           TransitionImage(
             "assets/images/header_bg.png",
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             width: MediaQuery.of(context).size.width,
-            height:MediaQuery.of(context).size.height/2,
+            height:D.default_100,
           ),
           Container(
             margin: EdgeInsets.only(left: D.default_20, right: D.default_20),

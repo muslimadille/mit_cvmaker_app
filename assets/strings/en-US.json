@@ -19,7 +19,11 @@
   "profile": "Profile",
   "more": "More",
   "previous_temp": "Previous templates",
-  "create_temp": "Create new CV"
+  "create_temp": "Create new CV",
+  "change_lang": "Change language",
+  "about_us": "About us",
+  "terms": "Terms and conditions",
+  "logout": "Logout"
 
 
 
