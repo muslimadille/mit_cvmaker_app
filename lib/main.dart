@@ -16,7 +16,7 @@ void main() async{
     child:EasyLocalization(
         supportedLocales: const [Locale('en', 'US'), Locale('ar', 'EG')],
         path: 'assets/strings', // <-- change the path of the translation files
-        fallbackLocale: const Locale('ar', 'EG'),
+        fallbackLocale: const Locale('en', 'US'),
         child: const MyApp()
     ),
   ));
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(const Locale('ar', 'EG'));
+    context.setLocale(const Locale('en', 'Us'));
     //EasyLocalization.of(context)!.setLocale(const Locale('ar', 'EG'));
     UtilsProviderModel utilsProviderModel;
     utilsProviderModel=Provider.of<UtilsProviderModel>(context,listen: true);

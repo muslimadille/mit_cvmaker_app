@@ -100,8 +100,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         MyUtils.navigate(context, RegisterationScreen());
       },
       title: tr("Register"),
-      color: C.GREY_4,
-      textStyle: S.h3(color: C.GREY_1),
+      color: C.RED_1,
+      textStyle: S.h3(color: Colors.white),
       enableShadow: false,
       margin: EdgeInsets.all(D.default_5),
 

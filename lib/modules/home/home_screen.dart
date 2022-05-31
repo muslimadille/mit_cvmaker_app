@@ -1,18 +1,10 @@
 
-import '../../utils/widgets/loading_widget.dart';
-
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import '../../utils/constants.dart';
-import '../login_screen/login_screen.dart';
 import '../../utils/baseDimentions.dart';
-import '../../utils/base_text_style.dart';
-import '../../utils/my_colors.dart';
-import '../../utils/my_utils.dart';
 import '../base_screen/base_screen.dart';
-
+import 'elements/home_header_widget.dart';
+import 'elements/tamplet_item_list_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,52 +14,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  //HomeProvider? homeProvider;
-  //CartProvider? cartProvider;
 
   @override
   void initState() {
     super.initState();
-    //homeProvider=Provider.of<HomeProvider>(context,listen: false);
-   // cartProvider=Provider.of<CartProvider>(context,listen: false);
-   // cartProvider!.getCartItems();
-   // homeProvider!.getHomeData();
   }
   @override
   Widget build(BuildContext context) {
-    //homeProvider=Provider.of<HomeProvider>(context,listen: true);
-   // cartProvider=Provider.of<CartProvider>(context,listen: true);
     return SafeArea(child: BaseScreen(body:
     Stack(children: [
       Container(
         child: Column(children: [
-          //_header(),
-          Expanded(child: SingleChildScrollView(child:Container()/*
-          homeProvider!.homeData!=null? Column(children:  [
-            AdsWidget(homeProvider!.homeData!.slider!),
-            HomeCategoriesListWidget(homeProvider!.homeData!),
-          ],):Container(),*/))
+          HomeHeaderWidget(),
+          SizedBox(height: D.default_100,),
+          Expanded(child: SingleChildScrollView(child: Column(children: [
+            TemplateItemListWidget(tr("previous_temp"),tr("create_temp")),
+            TemplateItemListWidget(tr("templates"),tr("more")),
+          ],),))
 
         ],),
       ),
-      //homeProvider!.isLoading?LoadingProgress():Container()
     ],)));
   }
- /* Widget _header(){
-    return Container(
-      margin: EdgeInsets.all(D.default_30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        Row(children: [
-          Expanded(child: Text(tr("wellcome"),style: S.h1(color: C.GREY_1),),),
-          CardIconWidget(),
-        ],),
-        Text(tr("home_title"),style: S.h3(color: C.GREY_3),),
-          SizedBox(height: D.default_20,),
-          HomeSearchWidget(),
-        ],),
-    );
-  }*/
+
+
 
 }

@@ -11,4 +11,5 @@ class MyFlutterApp {
   static const IconData notifications_dafault = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData orders_defauls = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData products_default = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
 }

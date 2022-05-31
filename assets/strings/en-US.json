@@ -13,6 +13,14 @@
   "change_password_text": "Change Password",
   "send_email_screen_title": "send",
   "code_will_send_massage": "Enter the code sent to your email.",
-  "confirm_code_text": "Confirm"
+  "confirm_code_text": "Confirm",
+  "templates": "Templates",
+  "pricing": "Pricing",
+  "profile": "Profile",
+  "more": "More",
+  "previous_temp": "Previous templates",
+  "create_temp": "Create new CV"
+
+
 
 }

@@ -49,22 +49,30 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
     return BaseScreen(
         body: SafeArea(
       child: Stack(
-        alignment: AlignmentDirectional.center,
+        alignment: AlignmentDirectional.topCenter,
         children: [
           TransitionImage(
-            "assets/images/login_blue_bg.png",
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
+            "assets/images/header_bg.png",
+            fit: BoxFit.fitHeight,
+            width: MediaQuery.of(context).size.width,
+            height:MediaQuery.of(context).size.height/2,
           ),
           Container(
-            margin: EdgeInsets.only(left: D.default_50, right: D.default_40),
+            margin: EdgeInsets.only(left: D.default_20, right: D.default_20),
             width: double.infinity,
             child: Column(
               children: [
-                _backBtn(context),
+                Container(
+                  height: D.default_80,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(children: [
+                  _backBtn(context),
+                  Expanded(child: _titleText(),),
+                    SizedBox(width: D.default_50,)
+                  ],),),
+
                 Expanded(
-                    child: SingleChildScrollView(
+                    child: Center(child: SingleChildScrollView(
                         child: Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
@@ -73,12 +81,11 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
                             color: Colors.white,
                             child: Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 20),
+                              const EdgeInsets.symmetric(horizontal: 20),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   SizedBox(height: D.default_40,),
-                                  _titleText(),
                                   _introText(),
                                   SizedBox(
                                     height: D.default_50,
@@ -99,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
 
                                 ],
                               ),
-                            ))))
+                            ))),))
               ],
             ),
           ),
@@ -129,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
       width: double.infinity,
       child: Text(
         tr("welcome_text"),
-        style: S.h3(color: C.GREY_3),
+        style: S.h1(color: C.BLUE_1),
         textAlign: TextAlign.center,
       ),
     );
@@ -141,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
       margin: EdgeInsets.only(top: D.default_10, bottom: D.default_10),
       child: Text(
         tr("login_title"),
-        style: S.h1(color: Colors.black),
+        style: S.h1(color: Colors.white),
         textAlign: TextAlign.center,
       ),
     );
@@ -165,8 +172,8 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
         MyUtils.navigate(context, RegisterationScreen());
       },
       title: tr("register_title"),
-      color: C.GREY_4,
-      textStyle: S.h3(color: C.GREY_1),
+      color: C.RED_1,
+      textStyle: S.h3(color: Colors.white),
       enableShadow: false,
       margin: EdgeInsets.all(D.default_5),
     );
@@ -200,10 +207,8 @@ class _LoginScreenState extends State<LoginScreen> with InputValidationMixin {
           ),
           Container(
             margin: EdgeInsets.all(D.default_10),
-            child: Text(
-              tr("or_text"),
-              style: S.h3(color: C.GREY_2),
-            ),
+            child: TransitionImage("assets/images/mitLogo.png",
+            width: D.default_60,height: D.default_60,),
           ),
           Expanded(
               child: Container(

@@ -62,12 +62,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void _initPref(BuildContext ctx)async{
     prefs =  await SharedPreferences.getInstance();
     Constants.prefs=prefs;
-    String local= await Constants.prefs!.get(Constants.LANGUAGE_KEY!)!=null?Constants.prefs!.get(Constants.LANGUAGE_KEY!).toString():"ar";
+    await utilsProviderModel!.setCurrentLocal(ctx, Locale('en', 'US'));
+
+    /*String local= await Constants.prefs!.get(Constants.LANGUAGE_KEY!)!=null?Constants.prefs!.get(Constants.LANGUAGE_KEY!).toString():"en";
      if(local=="ar"){
        utilsProviderModel!.setCurrentLocal(ctx, Locale('ar', 'EG'));
      }else{
        utilsProviderModel!.setCurrentLocal(ctx, Locale('en', 'US'));
-     }
+     }*/
     //_initSavedUser();
 
   }

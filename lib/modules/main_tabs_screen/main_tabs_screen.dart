@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import '../../utils/constants.dart';
 import '../home/home_screen.dart';
 import '../login_screen/login_screen.dart';
+import '../tempelates/templates_screen.dart';
 import 'bottom_bar_icons.dart';
 import '../../utils/baseDimentions.dart';
 import '../../utils/base_text_style.dart';
@@ -27,7 +28,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: 0);
+    _controller = PersistentTabController(initialIndex: 1);
   }
 
   @override
@@ -74,7 +75,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.simple,
+          NavBarStyle.style10,
       onItemSelected: (index){
         if(/*index>1&&Constants.currentUser==null*/false){
           MyUtils.navigateReplaceCurrent(Constants.tabScreenContext!, LoginScreen());
@@ -87,9 +88,7 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      const HomeScreen(),
-      const HomeScreen(),
-      const HomeScreen(),
+       TemplatesScreen(),
       const HomeScreen(),
       const HomeScreen()
     ];
@@ -97,42 +96,43 @@ class _MainTabsScreenState extends State<MainTabsScreen> {
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
+
       PersistentBottomNavBarItem(
-        icon:  Icon(MyFlutterApp.home_active,size: D.default_27,),
-        title: (tr("home")),
-        textStyle: S.h4(),
+        icon:  Icon(MyFlutterApp.products_default,size: D.default_27,),
+        title: (tr("templates")),
+        textStyle: S.h5(),
         activeColorPrimary: C.BLUE_2,
-        activeColorSecondary:C.BLUE_2,
+        activeColorSecondary:C.RED_1,
         inactiveColorSecondary:CupertinoColors.white,
         inactiveColorPrimary: CupertinoColors.white,
       ),
       PersistentBottomNavBarItem(
-        icon:  Icon(MyFlutterApp.products_default,size: D.default_27,),
-        title: (tr("products")),
-        textStyle: S.h4(),
-        activeColorPrimary: C.BLUE_2,
-        inactiveColorPrimary: CupertinoColors.white,
+          icon:  Icon(MyFlutterApp.home_active,size: D.default_27,),
+          title: (tr("home")),
+          textStyle: S.h5(),
+          activeColorPrimary: C.BLUE_2,
+          activeColorSecondary:C.RED_1,
+          inactiveColorSecondary:CupertinoColors.white,
+          inactiveColorPrimary: CupertinoColors.white,
+          contentPadding: D.default_5
       ),
-      PersistentBottomNavBarItem(
+      /*PersistentBottomNavBarItem(
         icon:  Icon(MyFlutterApp.orders_defauls,size: D.default_27,),
-        title: (tr("my_orders")),
-        textStyle: S.h4(),
+        title: (tr("pricing")),
+        textStyle: S.h5(),
         activeColorPrimary: C.BLUE_2,
+        activeColorSecondary:C.BLUE_2,
+        inactiveColorSecondary:CupertinoColors.white,
         inactiveColorPrimary: CupertinoColors.white,
 
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(MyFlutterApp.notifications_dafault,size: D.default_27,),
-        textStyle: S.h4(),
-        title: (tr("notifications")),
-        activeColorPrimary: C.BLUE_2,
-        inactiveColorPrimary: CupertinoColors.white,
-      ),
+      ),*/
       PersistentBottomNavBarItem(
         icon:  Icon(MyFlutterApp.more_default,size: D.default_27,),
-        textStyle: S.h4(),
+        textStyle: S.h5(),
         title: (tr("more")),
         activeColorPrimary: C.BLUE_2,
+        activeColorSecondary:C.RED_1,
+        inactiveColorSecondary:CupertinoColors.white,
         inactiveColorPrimary: CupertinoColors.white,
       ),
     ];

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../baseDimentions.dart';
 import '../base_text_style.dart';
 import '../input_validation_mixin.dart';
 import '../my_colors.dart';
@@ -39,15 +40,15 @@ class _BaseTextFiledState extends State<BaseTextFiled> with InputValidationMixin
               labelStyle: S.h4(color: C.GREY_3),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey),
-              borderRadius: BorderRadius.circular(1.0),
+              borderRadius: BorderRadius.circular(D.default_10),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: C.BLUE_1),
-              borderRadius: BorderRadius.circular(1.0),
+              borderRadius: BorderRadius.circular(D.default_10),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(color: C.BLUE_1),
-              borderRadius: BorderRadius.circular(1.0),
+              borderRadius: BorderRadius.circular(D.default_10),
             ),
             errorStyle: S.h4(color: Colors.red),
             contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),

@@ -15,6 +15,12 @@
   "change_password_text": "تغيير كلمة السر",
   "send_email_screen_title": "إرسال",
   "code_will_send_massage": "ادخل الكود المرسل إلى بريدك الإلكترونى",
-  "confirm_code_text": "تحقق"
+  "confirm_code_text": "تحقق",
+  "templates": "النماذج",
+  "pricing": "الأسعار",
+  "profile": "حسابي",
+  "more": "المزيد",
+  "previous_temp": "السابقة",
+  "create_temp": "سيرة جديدة"
 
 }
